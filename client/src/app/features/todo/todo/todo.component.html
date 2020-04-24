@@ -1,0 +1,14 @@
+<mat-card>
+  <ng-container *ngIf="vm$ | async as vm">
+    <h2>Todo Lists</h2>
+    <mat-action-list role="list">
+      <app-todo-list-item *ngFor="let todo of vm.todos" [todo]="todo" [loading]="vm.loading"
+        (update)="showEditDialog($event)" (remove)="showRemoveDialog($event)"></app-todo-list-item>
+    </mat-action-list>
+  </ng-container>
+</mat-card>
+<div class="fab-bottom-right">
+  <button mat-fab color="accent" aria-label="Add" (click)="showCreateDialog()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

@@ -1,0 +1,25 @@
+<header>
+  <mat-toolbar color="primary" class="expanded-toolbar">
+    <div>
+      <span>{{title}}</span>
+      <button mat-button routerLink="/todos">
+        <mat-icon>view_lists</mat-icon>
+        Todo
+      </button>
+    </div>
+    <div>
+      <button mat-button routerLink="/login" *ngIf="authService.token.length == 0">
+        <mat-icon>account_box</mat-icon>
+        Login
+      </button>
+      <button mat-button routerLink="/login" *ngIf="authService.token.length > 0" (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>
+        Logout
+      </button>
+    </div>
+  </mat-toolbar>
+</header>
+<main>
+  <router-outlet></router-outlet>
+</main>
+<!-- <footer></footer> -->
